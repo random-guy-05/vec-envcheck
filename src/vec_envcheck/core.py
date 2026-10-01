@@ -48,7 +48,7 @@ def build_report(cwd: str | Path = ".") -> dict:
     try:
         importlib.import_module("veckit")
         veckit_import: bool | str = True
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - diagnostics report any import-time failure
         veckit_import = f"{type(exc).__name__}: {exc}"
 
     available_ram_gb = None
